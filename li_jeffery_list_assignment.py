@@ -13,6 +13,10 @@ def two23(num_list):
 
     return num_2 >= 2 or num_3 >= 3
 
+# tenStreak
+# A function that looks for the first appearance of a multile of 10, then replace
+# numbers after that with that multiple of 10, until another multipple of 10 is
+# encountered. Repeat until the end of the list of numbers
 def tenStreak(num_list):
 
     multiple = 0
