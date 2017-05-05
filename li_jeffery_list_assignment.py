@@ -32,7 +32,7 @@ def two23(num_list):
             num_of_3 += 1
 
     # Return whether or not there are two occurences of 2 or 3 occurences of 3
-    return  num_of_2 >= 2 or num_of_3 >= 3
+    return  num_of_2 == 2 or num_of_3 == 3
 
 def tenStreak(num_list):
     """
