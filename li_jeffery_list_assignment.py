@@ -12,11 +12,12 @@ Created:    01/05/2017
 
 def two23(num_list):
     """
-    Checks if there are at least 2 occurences of either 2 or 3 in num_list.
+    Checks if there are either two occurences of 2 or 3 in num_list
     :param num_list: list - list of integers
-    :return: boolean - whether or not there are two occurences of 2 or 3 occurences of 3
+    :return: boolean - whether or not there are two occurences of 2 or 3
     """
-    # Define the number of occurences of 2 and the number of occurences of 3 in the list
+
+    # Define variables for the number of occurrences of 2 and 3
     num_of_2 = 0
     num_of_3 = 0
 
@@ -31,33 +32,33 @@ def two23(num_list):
         elif num == 3:
             num_of_3 += 1
 
-    # Return whether or not there are two occurences of 2 or 3 occurences of 3
-    return  num_of_2 == 2 or num_of_3 == 3
+    # Return whether or not there are two occurrences of 2 or 3 occurrences of 3
+    return  num_of_2 == 2 or num_of_3 == 2
 
 def tenStreak(num_list):
     """
-    Makes multiples of 10 replace all of the list elements after them, until another mutiple of 10 is encountered
+    Makes multiples of 10 replace all of the list elements after them, until another multiple of 10 is encountered
     :param num_list: list - list of integers
     :return num_list: list - the inputted list of integers, now with the tenstreak format
     """
 
-    # Define multiple the current multiple of 10 to be an integer
-    multiple = 10
+    # Define a variable to hold the current multiple of 10
+    multiple = 0
 
     # Set seen_multiple to be False, because this is so that the tenstreak will occur only when a multiple of 10 has
-    # actually been encountered
+    # is encountered
     seen_multiple = False
 
     # Iterate through num_list
     for i in range(len(num_list)):
 
-        # Check if the current value of num_list is evenly divisible by zero, if so, seen_multiple is set to be True,
+        # Check if the current value of num_list is evenly divisible by 10, if so, seen_multiple is set to be True,
         # and the current multiple is set to be the current value
         if num_list[i]%10 == 0:
             multiple = num_list[i]
             seen_multiple = True
 
-        # If a multiple has been seen, the
+        # If a multiple has been seen, the current element is set to the current multiple of 10
         elif seen_multiple:
             num_list[i] = multiple
 
@@ -66,6 +67,7 @@ def tenStreak(num_list):
 
 def acromatch(acronym_1, acronym_2):
     """
+    Gets 2 lists of strings, and determines whether those two lists of strings form the same acronym
     :param acronym_1: list - A list of words that will form an acronym
     :param acronym_2: list - Another list of words that will form an acronym
     :return: boolean - whether the 2 acronyms match each other or not
@@ -93,7 +95,7 @@ def canVote(birth):
     :return: Boolean - Whether the person can vote or not
     """
 
-    # Define the youngest month, day, and year a person could vote on
+    # Define the youngest possible month, day, and year a person could vote on
     youngest_month = 11
     youngest_day = 8
     youngest_year = 1998
@@ -116,7 +118,8 @@ def canVote(birth):
     elif birth_month < youngest_month and birth_year == youngest_year :
         return True
 
-    # Check if the birth day is older or the same as the youngest year as long as the birth month is the same as the youngest month
+    # Check if the birth day is older or the same as the youngest year as long as the birth month is the same as the
+    # youngest month
     elif birth_day <= youngest_day and birth_month == youngest_month:
         return True
 
@@ -129,8 +132,8 @@ def print_pascal(width, height):
     """
     Prints out a chart that has a rectangular section of the pascal triangle, with the top tip of the triangle at the
     top left corner of the rectangle.
-    :param width:
-    :param height:
+    :param width: Integer - The width of the pascal chart
+    :param height: Integer - The length of the pascal chart
     """
 
     # Create table filled with the number 1
@@ -145,20 +148,21 @@ def print_pascal(width, height):
     # Iterate through the rows vertically
     for row in range(1,height):
 
-        # Iterates through the columns in the row
-        for column in range(1, width)
+        # Iterate through the columns in the row
+        for column in range(1, width):
 
             # Define the values above and to the left of the current number
             above = (pascal_list[row -1][column])
             left = (pascal_list[row][column - 1])
 
-            # Fill list elements after the first row and the first column with the sum of the number above and to the left of it
+            # Fill list elements after the first row and the first column with the sum of the number above and to the
+            # left of it
             pascal_list[row][column] = above + left
 
     # Iterate through the rows vertically
     for row in range(height):
 
-        # Iterates through the columns in the row
+        # Iterate through the columns in the row
         for column in range(width):
 
             # Convert all of the elements in pascal_list to strings
@@ -167,7 +171,7 @@ def print_pascal(width, height):
     # Get length of the longest number, and set that as the cell_width of the table
     cell_width = len(pascal_list[width - 1][height - 1])
 
-    # Define the string that holds the entire cart
+    # Define the string that holds the entire chart
     chart_total = ""
 
     # Iterate through the rows vertically
@@ -176,17 +180,17 @@ def print_pascal(width, height):
         # Set the value of the chart's row to be an empty string
         chart_row = ""
 
-        # Iterates through the columns in the row
+        # Iterate through the columns in the row
         for column in range(width):
 
-            # adds: {p[row][column]:<cell_width}
+            # adds string formatting placeholders for every element in the row: {p[row][column]:<cell_width}
             chart_row += "{p[" + str(row) + "][" + str(column) + "]:<" + str(cell_width) + "} "
 
         # Add the formatted chart_row adn a newline to the chart_total
         chart_total += chart_row.format(p = pascal_list) + "\n"
 
     # Print the entire chart
-    print(row_string_total)
+    print(chart_total)
 
 # A2
 print("\n A2")
