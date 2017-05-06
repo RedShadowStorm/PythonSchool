@@ -219,4 +219,5 @@ print(canVote("10/31/1998"))
 # E2
 print("\n E2")
 print_pascal(15, 15)
+print_pascal(3, 3)
 
