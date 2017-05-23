@@ -24,7 +24,7 @@ def convert_letters(text_list, index, input, output):
 
     # Check if the current index matches the input
     for i in range(input_length):
-        if text_list[index+i] != input[i]:
+        if text_list[index + i] != input[i]:
             return
 
     # Since we didn't return in the previous function
